@@ -2,39 +2,42 @@ html{
     height: 100%;
 }
 body{
-     background-color: burlywood;
+     background-image: url("http://i.imgur.com/z3gMalF.jpg");
      min-height: 100%;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
 }
 button{
     background-color: #cdd0d7;
-    margin: 0.3%;
-    min-width: 35px; 
-    width:15%;
+    margin: 0.3%; 
+    width: 150%;
   
 }
 #wapper{
-    min-width: 640px 
-    min-height: 360px;
-    font-size: 200%;
-    width: 50%;
-    height: 50%;
-  position: relative;
+    width: 70%;
+    height: 70vh;
+    background-color: #9498a1;
+    border-radius: 25px ;
+    min-width: 617px;
      
- 
 }
 #calc{
-    position: absolute;
-    top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-    border-radius: 25px ;
-    min-width: 640px ;
-    min-height: 360px;
-    background-color: #9498a1;
-    
-     
+     font-size: 200%;
+    height: 70vh;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
 }
+table{
+    border-spacing: 3vw 0.5vh;
+    border-collapse:separate;
+}
+  
 
 
 

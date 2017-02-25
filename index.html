@@ -11,40 +11,48 @@
         <div id="wapper" class="container" >
             <div id="calc"   >
                 <div >
-                    <form id = "form">
+                    <form id = "form" >
                         <input type="text" name="input" id="input" class = "row col-sm-8 col-sm-offset-2">
                         <input type="text" name="prev" id="prev" class = "row col-sm-8 col-sm-offset-2" disabled>
                     </form>
                 </div>
-                <div class="col-xs-5 col-xs-offset-3 " id="buttons">
-                    <button id="7" class="btn">7</button>
-                    <button id="8" class="btn">8</button>
-                    <button id="9" class="btn">9</button>
-                    <button id="plus" class="btn">+</button>
-                    <button id="clear" class="btn" style=" padding-right:11px">C</button>
-
-                    <button id="4" class="btn">4</button>
-                    <button id="5" class="btn">5</button>
-                    <button id="6" class="btn">6</button>
-                    <button id="minus" class="btn">-</button>
-                    <button id="clearPrev" class="btn "style=" padding-left:9px" >CP</button>
-
-                    <button id="1" class="btn">1</button>
-                    <button id="2" class="btn">2</button>
-                    <button id="3" class="btn">3</button>
-                    <button id="division" class="btn">/</button>
-                    <button id="prevAnswer" class="btn" style=" padding-left:9px" >AN</button>
-
-                    <button id="0" class="btn" style=" width:32.5%" >0</button>
-                    <button id="equals" class="btn">=</button>
-                    <button id="multi" class="btn">*</button>
-                    <button id="delete" class="btn" style=" padding-left:9px">DE</button>  
-
-                    <button id="leftP" class="btn">(</button>
-                    <button id="deci" class="btn">.</button>
-                    <button id="rightP" class="btn">)</button>
-                    <button id="pow" class="btn">^</button>
-                    <button id="root" class="btn" style=" padding-left:9px" >RT</button>
+                <div  id="buttons">
+                    <table>
+                        <tr>
+                            <td><button id="7" class="btn">7</button></td>
+                            <td><button id="8" class="btn">8</button></td>
+                            <td><button id="9" class="btn">9</button></td>
+                            <td><button id="plus" class="btn">+</button></td>
+                            <td><button id="clear" class="btn" >C</button></td>
+                        </tr>
+                        <tr>
+                            <td><button id="4" class="btn">4</button></td>
+                            <td><button id="5" class="btn">5</button></td>
+                            <td><button id="6" class="btn">6</button></td>
+                            <td><button id="minus" class="btn">-</button></td>
+                            <td><button id="clearPrev" class="btn ">CP</button></td>
+                       </tr>    
+                        <tr>
+                            <td> <button id="1" class="btn">1</button></td>
+                            <td> <button id="2" class="btn">2</button></td>
+                            <td> <button id="3" class="btn">3</button></td>
+                            <td> <button id="division" class="btn">/</button></td>
+                            <td> <button id="prevAnswer" class="btn"  >AN</button></td>
+                        </tr>        
+                        <tr>
+                            <td colspan="2" style="min-width:100%"> <button id="0" class="btn" style="width:117%">0</button></td>
+                            <td> <button id="equals" class="btn">=</button></td>
+                            <td> <button id="multi" class="btn">*</button></td>
+                            <td> <button id="delete" class="btn" >DE</button> </td> 
+                        </tr>         
+                        <tr>
+                            <td><button id="leftP" class="btn">(</button></td>
+                            <td><button id="deci" class="btn">.</button></td>
+                            <td><button id="rightP" class="btn">)</button></td>
+                            <td><button id="pow" class="btn">^</button></td>
+                            <td><button id="root" class="btn"  >RT</button></td>
+                        </tr>
+             </table>
                 </div>
             </div>
         </div> 
