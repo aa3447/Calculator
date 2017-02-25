@@ -1,4 +1,4 @@
-//todo  fix delete , make calc look like a calc    
+   
 function shunting(i){
         var input = i.split("");
         var output = [];
