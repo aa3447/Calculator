@@ -13,7 +13,12 @@ function shunting(i){
                } 
              output.push(localInput);
             }
-           
+            else if(localInput === "^" || localInput === "R" ){//power , right assoctive precdence 4
+                while( stack[0] === "-u"){
+                output.push(stack.splice(0,1)[0]);
+                }
+                stack.unshift(localInput);  
+            }
             else if(localInput ===  "/" || localInput ===  "*"){//left assocative. precadence 3
                  while( stack[0] === "/" || stack[0] === "*"  || stack[0] === "-u"){
                         output.push(stack.splice(0,1)[0]);
@@ -22,7 +27,7 @@ function shunting(i){
                   stack.unshift(localInput);
              }
              else if( localInput ===  "-"){
-                if ((output === 0 || !($.isNumeric(prev))) && prev !== ")"  ){//uninay minus, right assoctive precdence 4
+                if ((output === 0 || !($.isNumeric(prev))) && prev !== ")"  ){//uninay minus, right assoctive precdence 5
                     stack.unshift("-u");
                 }else{//infix minus,left assoctaive. preadence 2
                      while( stack[0] ===  "-" || stack[0] ===  "+" || stack[0] === "/" || stack[0] === "*" || stack[0] === "-u"){
@@ -71,7 +76,6 @@ function shunting(i){
             }
             output.push(stack.splice(0,1)[0]) 
         } 
-        console.log(output);
         return output; 
     } 
   
@@ -82,6 +86,7 @@ function adder(i){//accepts arrays
     var a = 0;
     var b = 0;
     var stack = [];
+    var diviser = 1;
     while(i.length  > 0 ){
         var localInput = i.splice(0,1)[0];
         if($.isNumeric(localInput)){
@@ -96,10 +101,10 @@ function adder(i){//accepts arrays
                  a = stack.splice(0,1)[0];
                  b = stack.splice(0,1)[0]; 
                 if(localInput === "+"){
-                a = a+b;
+                    a = a+b;
                 }
                 else if(localInput === "-"){
-                a = b-a;
+                    a = b-a;
                 }
                 else if(localInput === "*"){
                     a = a*b;
@@ -109,8 +114,44 @@ function adder(i){//accepts arrays
                      stack = "Can't divide by 0!";
                     return stack;
                     }
+                    diviser = a;
                     a = b/a;
                 }
+                else if(localInput === "^"){
+                    if(b < 0 && a < 1){
+                        if(diviser%2 === 0){
+                            stack = "No negative even roots!";
+                            return stack;
+                        }
+                        else{
+                            b = -1*b;
+                            a = Math.pow(b,a);
+                            a= -1*a;
+                        }
+                    
+                    }else{
+                         a = Math.pow(b,a);
+                    }
+                  
+                }
+              else if(localInput === "R"){
+                if(b < 0){
+                stack = "No negative bases!";
+                return stack;
+                }
+                if(a < 0 && b%2 !== 0){
+                    a = -1*a;
+                    a = Math.pow(a,1/b);
+                    a= -1*a;
+                }
+                else if(a < 0 && b%2 === 0){
+                    stack = "No negative even roots!";
+                    return stack;
+                }
+                else{
+                  a = Math.pow(a,1/b);
+                }
+            }
             }
             else{
               stack = "Not enough numbers";
@@ -143,9 +184,7 @@ $(function() {
             input = adder(shunt).toString();
             answer = input; 
             prev = prev + " = " + input;
-            if(!(/[A-Za-z]/.test(prev))){
-                $("#prev").val(prev);
-            }
+            $("#prev").val(prev); 
             $("#input").val(input);
         }
     });
@@ -234,6 +273,16 @@ $(function() {
         input += ".";
         $("#input").val(input);
     });
+    $("#pow").click(function(){
+        input = $("#input").val(); 
+        input += "^";
+        $("#input").val(input);
+    });
+     $("#root").click(function(){
+        input = $("#input").val(); 
+        input += "R";
+        $("#input").val(input);
+    });
      $("#prevAnswer").click(function(){
          input = $("#input").val(); 
         input += answer;
@@ -261,9 +310,7 @@ $(function() {
         input = adder(shunt).toString();
         answer = input; 
         prev = prev + " = " + input;
-        if(!(/[A-Za-z]/.test(prev))){
-            $("#prev").val(prev);
-        }
+        $("#prev").val(prev);
         $("#input").val(input);
     });
  });
