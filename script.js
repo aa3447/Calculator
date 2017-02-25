@@ -176,6 +176,11 @@ $(function() {
     var prev = "";
     var answer = "";
     var shunt = [];
+    var height = 360;
+    $( window ).resize(function() {
+        height = $("#wapper").height()/2;
+        $("#wapper").css("height","" + height);
+    });
     $("#form").keypress(function(e){
         if(e.which === 13){
             input = $("#input").val();
