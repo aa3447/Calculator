@@ -20,7 +20,7 @@ function shunting(i){
                 stack.unshift(localInput);  
             }
             else if(localInput ===  "/" || localInput ===  "*"){//left assocative. precadence 3
-                 while( stack[0] === "/" || stack[0] === "*"  || stack[0] === "-u"){
+                 while( stack[0] === "/" || stack[0] === "*"  || stack[0] === "-u" ||  stack[0]  === "^" || stack[0]  === "R"){
                         output.push(stack.splice(0,1)[0]);
                  
                  }
@@ -30,7 +30,7 @@ function shunting(i){
                 if ((output === 0 || !($.isNumeric(prev))) && prev !== ")"  ){//uninay minus, right assoctive precdence 5
                     stack.unshift("-u");
                 }else{//infix minus,left assoctaive. preadence 2
-                     while( stack[0] ===  "-" || stack[0] ===  "+" || stack[0] === "/" || stack[0] === "*" || stack[0] === "-u"){
+                     while( stack[0] ===  "-" || stack[0] ===  "+" || stack[0] === "/" || stack[0] === "*" || stack[0] === "-u" ||  stack[0]  === "^" ||  stack[0]  === "R"){
                         output.push(stack.splice(0,1)[0]);
                     }
                  stack.unshift(localInput);
@@ -38,7 +38,7 @@ function shunting(i){
             }
             
             else if( localInput === "+"  ){//left assoctaive. preadence 2
-                    while( stack[0] ===  "-" || stack[0] ===  "+" || stack[0] === "/" || stack[0] === "*"  || stack[0] === "-u" ){
+                    while( stack[0] ===  "-" || stack[0] ===  "+" || stack[0] === "/" || stack[0] === "*"  || stack[0] === "-u" || stack[0] === "^" || stack[0]  === "R" ){
                         output.push(stack.splice(0,1)[0]);
                     }
                  stack.unshift(localInput);
