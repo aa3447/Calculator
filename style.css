@@ -11,7 +11,14 @@ button{
     background-color: #cdd0d7;
     
 }
-
+button:hover{
+    background-color: #b7b8bc;
+    
+}
+button:active {
+ background-color: #b7b8bc;
+  transform: translateY(4px);
+}
 #calc{
     background-color: #9498a1;
     border-radius: 35px;
