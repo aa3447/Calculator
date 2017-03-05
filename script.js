@@ -1,4 +1,4 @@
-   
+"use strict";
 function shunting(i){
         var input = i.split("");
         var output = [];
@@ -198,7 +198,7 @@ $(function() {
         input = $("#input").val(); 
         input += "R";
         $("#input").val(input);
-    })
+    });
      $("#prevAnswer").click(function(){
          input = $("#input").val(); 
         input += answer;
