@@ -194,7 +194,11 @@ $(function() {
         $("#input").val(input);
     
     });
-   
+    $("#root").click(function(){
+        input = $("#input").val(); 
+        input += "R";
+        $("#input").val(input);
+    })
      $("#prevAnswer").click(function(){
          input = $("#input").val(); 
         input += answer;
