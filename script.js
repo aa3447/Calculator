@@ -89,7 +89,7 @@ function adder(i){//accepts arrays
     var diviser = 1;
     while(i.length  > 0 ){
         var localInput = i.splice(0,1)[0];
-        if($.isNumeric(localInput)){
+        if($.isNumeric(localInput)){//if number 
             localInput = Number(localInput);
             stack.unshift(localInput);
         }
@@ -176,8 +176,6 @@ $(function() {
     var prev = "";
     var answer = "";
     var shunt = [];
-   
-    
     $("#form").keypress(function(e){
         if(e.which === 13){
             input = $("#input").val();
@@ -190,101 +188,13 @@ $(function() {
             $("#input").val(input);
         }
     });
-    $("#1").click(function(){
+    $(".simple").click(function(){
         input = $("#input").val();
-        input += "1";
+        input += $(this).text();
         $("#input").val(input);
+    
     });
-     $("#2").click(function(){
-        input = $("#input").val();
-        input += "2";
-        $("#input").val(input);
-    });
-     $("#3").click(function(){
-        input = $("#input").val();
-        input += "3";
-        $("#input").val(input);
-    });
-     $("#4").click(function(){
-         input = $("#input").val();
-         input += "4";
-         $("#input").val(input);
-    });
-     $("#5").click(function(){
-         input = $("#input").val();
-         input += "5";
-         $("#input").val(input);
-    });
-     $("#6").click(function(){
-         input = $("#input").val();
-         input += "6";
-         $("#input").val(input);
-    });
-     $("#7").click(function(){
-         input = $("#input").val();
-         input += "7";
-         $("#input").val(input);
-    });
-     $("#8").click(function(){
-         input = $("#input").val();
-         input += "8";
-         $("#input").val(input);
-    });
-     $("#9").click(function(){
-         input = $("#input").val();
-         input += "9";
-         $("#input").val(input);
-    });
-     $("#0").click(function(){
-         input = $("#input").val();
-         input += "0";
-         $("#input").val(input);
-    });
-     $("#plus").click(function(){
-         input = $("#input").val();
-         input += "+";
-         $("#input").val(input);
-    });
-     $("#minus").click(function(){
-         input = $("#input").val();
-         input += "-";
-         $("#input").val(input);
-    });
-     $("#multi").click(function(){
-         input = $("#input").val();
-         input += "*";
-         $("#input").val(input);
-    });
-     $("#division").click(function(){
-         input = $("#input").val();
-         input += "/";
-         $("#input").val(input);
-    });
-     $("#leftP").click(function(){
-         input = $("#input").val();
-         input += "(";
-         $("#input").val(input);
-    });
-     $("#rightP").click(function(){
-        input = $("#input").val();
-        input += ")";
-        $("#input").val(input);
-    });
-    $("#deci").click(function(){
-        input = $("#input").val(); 
-        input += ".";
-        $("#input").val(input);
-    });
-    $("#pow").click(function(){
-        input = $("#input").val(); 
-        input += "^";
-        $("#input").val(input);
-    });
-     $("#root").click(function(){
-        input = $("#input").val(); 
-        input += "R";
-        $("#input").val(input);
-    });
+   
      $("#prevAnswer").click(function(){
          input = $("#input").val(); 
         input += answer;
